@@ -21,8 +21,8 @@ def read_movies_from_csv(filename, header):
                                     row["poster_image"],
                                     row["trailer_youtube"])
                 movies.append(movie)
-    except FileNotFoundError:
-        print("No such file or directory \"{}\".".format(filename))
+    except IOError:
+        print("\"{}\" not found. Exiting".format(filename))
         exit()
     else:
         if not csvfile.closed:
@@ -30,5 +30,4 @@ def read_movies_from_csv(filename, header):
     return movies
 
 
-movies = read_movies_from_csv(FILENAME, HEADER)
-fresh_tomatoes.open_movies_page(movies)
+fresh_tomatoes.open_movies_page(read_movies_from_csv(FILENAME, HEADER))
