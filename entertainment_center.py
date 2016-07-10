@@ -1,48 +1,34 @@
 """
-Create  webpage info & trailers of  some of my favourite movies.
+Create webpage and open webpage to display movie info and trailers.
 """
-
+import csv
 import media
 import fresh_tomatoes
 
-riddick = media.Movie("Riddick",
-                      "Escaped criminal, Riddick is left for dead on a "
-                      "deserted planet.",
-                      "https://upload.wikimedia.org/wikipedia/en/6/69/Riddick_poster.jpg",
-                      "https://www.youtube.com/watch?v=iP3eFIOBU0k")
+HEADER = ["title", "storyline", "poster_image", "trailer_youtube"]
+FILENAME = "movies.csv"
 
-hardcore_henry = media.Movie("Hardcore Henry",
-                             "Henry is revived from an accident with no "
-                             "memory and must save his wife from meceneries.",
-                             "https://upload.wikimedia.org/wikipedia/en/e/ed/Hardcore_%282015_film%29.jpg",
-                             "https://www.youtube.com/watch?v=96EChBYVFhU")
 
-deadpool = media.Movie("Deadpool",
-                       "Wade Wilson, a former Special Forces operative is "
-                       "subjected to a rogue experiment that gives him "
-                       "accelerated healing powers and a horribly disfgured "
-                       "face.",
-                       "https://upload.wikimedia.org/wikipedia/en/4/46/Deadpool_poster.jpg",
-                       "https://www.youtube.com/watch?v=9vN6DHB6bJc")
+def read_movies_from_csv(filename, header):
+    """ Read movie info from CSV file into a list of movie objects. """
+    try:
+        with open(filename, "r") as csvfile:
+            movies = []
+            reader = csv.DictReader(csvfile, header)
+            for row in reader:
+                movie = media.Movie(row["title"],
+                                    row["storyline"],
+                                    row["poster_image"],
+                                    row["trailer_youtube"])
+                movies.append(movie)
+    except FileNotFoundError:
+        print("No such file or directory \"{}\".".format(filename))
+        exit()
+    else:
+        if not csvfile.closed:
+            csvfile.close()
+    return movies
 
-the_man_from_uncle = media.Movie("The Man From Uncle",
-                                 "A professional thief-turned CIA agent "
-                                 "Napoleon Solo must work on a joint mission "
-                                 "with a operative Illya Kuryakin.",
-                                 "https://upload.wikimedia.org/wikipedia/en/e/e5/The_Man_from_U.N.C.L.E._poster.jpg",
-                                 "https://www.youtube.com/watch?v=CzYRlISYE8Y")
 
-furious_7 = media.Movie("Furious 7",
-                        "Dominic Toretto must hunt down Deckard Shaw.",
-                        "https://upload.wikimedia.org/wikipedia/en/b/b8/Furious_7_poster.jpg",
-                        "https://www.youtube.com/watch?v=yISKeT6sDOg")
-
-hateful_eight = media.Movie("Hateful Eight",
-                            "A bounty hunter is transporting three dead "
-                            "bounties",
-                            "https://upload.wikimedia.org/wikipedia/en/d/d4/The_Hateful_Eight.jpg",
-                            "https://www.youtube.com/watch?v=gnRbXn4-Yis")
-
-movies = [riddick, hardcore_henry, deadpool, the_man_from_uncle, furious_7,
-          hateful_eight]
+movies = read_movies_from_csv(FILENAME, HEADER)
 fresh_tomatoes.open_movies_page(movies)
