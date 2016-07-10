@@ -1,11 +1,15 @@
+"""
+Create  webpage info & trailers of  some of my favourite movies.
+"""
+
 import media
 import fresh_tomatoes
 
 riddick = media.Movie("Riddick",
-                       "Escaped criminal, Riddick is left for dead on a "
-                       "deserted planet.",
-                       "https://upload.wikimedia.org/wikipedia/en/6/69/Riddick_poster.jpg",
-                       "https://www.youtube.com/watch?v=iP3eFIOBU0k")
+                      "Escaped criminal, Riddick is left for dead on a "
+                      "deserted planet.",
+                      "https://upload.wikimedia.org/wikipedia/en/6/69/Riddick_poster.jpg",
+                      "https://www.youtube.com/watch?v=iP3eFIOBU0k")
 
 hardcore_henry = media.Movie("Hardcore Henry",
                              "Henry is revived from an accident with no "
