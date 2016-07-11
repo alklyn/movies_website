@@ -30,4 +30,5 @@ def read_movies_from_csv(filename, header):
     return movies
 
 
+# Create & open webpage.
 fresh_tomatoes.open_movies_page(read_movies_from_csv(FILENAME, HEADER))

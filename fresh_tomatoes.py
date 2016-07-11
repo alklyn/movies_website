@@ -13,11 +13,13 @@ main_page_head = '''
     <!-- Bootstrap 3 -->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Yellowtail' rel='stylesheet' type='text/css'>
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
     <style type="text/css" media="screen">
         body {
             padding-top: 80px;
+            background-color: #FAFAE0;
         }
         #trailer .modal-dialog {
             margin-top: 200px;
@@ -54,6 +56,9 @@ main_page_head = '''
             left: 0;
             top: 0;
             background-color: white;
+        }
+        h2 {
+            font-family: 'Yellowtail', cursive;
         }
     </style>
     <script type="text/javascript" charset="utf-8">
@@ -121,7 +126,7 @@ main_page_content = '''
 # A single movie entry html template
 movie_tile_content = '''
 <div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
-    <img src="{poster_image_url}" width="220" height="342">
+    <img src="{poster_image_url}" class="img-rounded" width="220" height="342">
     <h2>{movie_title}</h2>
 </div>
 '''
