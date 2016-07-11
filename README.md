@@ -37,6 +37,7 @@ title | storyline | poster_image | trailer_youtube
 When you're done editing save the file as CSV with the following settings:
 
 Field delimiter: ,
+
 Text delimiter: "
 
 Then type again:
