@@ -1,3 +1,4 @@
+""" Create web page from a list of movie objects """
 import webbrowser
 import os
 import re

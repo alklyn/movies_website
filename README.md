@@ -26,7 +26,7 @@ In the command line enter the directory movie_website & type:
 `python entertainment_center.py`
 
 This will create the the web page "fresh_tomatoes.html" as well as open it in
-your default browser. Clicking on the posters play the trailers.
+your default browser. Click on a movie's poster to play it's trailers.
 
 ### How do you change movies displayed?
 Simply open the file "movies.csv" in a spreadsheet of your choice.
@@ -34,5 +34,13 @@ You'll find the data is split into the following columns
 
 title | storyline | poster_image | trailer_youtube
 
-When you're done editing save the file as CSV  and run the type the commands
-mentioned above to create and open the new webpage.
+When you're done editing save the file as CSV with the following settings:
+
+Field delimiter: ,
+Text delimiter: "
+
+Then type again:
+
+`python entertainment_center.py`
+
+to create and open the new webpage.
