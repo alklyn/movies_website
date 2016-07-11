@@ -11,13 +11,13 @@ File                    | Purpose
 ----------------------- | ----------------------------------------------------
 media.py                | Contain the classes needed to create movie objects.
 fresh_tomatoes.py       | Generate the website from a list of movie objects.
-movies.csv              | Store details of my favorite movies.
+movies.csv              | Store movie info.
 entertainment_center.py | Create the wesite using the modules and file above.
 
 
 ## Requirements
  Make sure you have Python 2.7 installed on your computer.
- [link](https://www.python.org)
+ [Python](https://www.python.org)
 
 
 ## How do you use it?
